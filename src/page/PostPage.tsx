@@ -51,13 +51,13 @@ const PostPage = () => {
             <img
               src={urlFor(post.mainImage).url()}
               alt={post.title}
-              className="max-w-[700px] w-[100%] "
+              className="max-w-[700px] w-[100%] rounded-lg "
             />
           </>
         )}
         <p
           style={{ whiteSpace: "pre-line" }}
-          className="mt-4 text-gray-200 py-6"
+          className="mt-4 text-gray-200 py-6 text-justify"
         >
           {content}
         </p>
