@@ -1,4 +1,5 @@
 import PostContainer from "./components/PostContainer";
+import ProgressBar from "./components/progressbar";
 import { client } from "./sanityClient";
 import { useEffect, useState } from "react";
 interface PostType {
@@ -35,6 +36,7 @@ function App() {
         <h1 className="text-white sm:text-2xl text-xl flex justify-center">
           Tushar's Blog
         </h1>
+        <ProgressBar />
         <h2 className="text-white sm:text-xl text-lg pt-3 mt-6 pb-2 italic">
           All Posts
         </h2>
