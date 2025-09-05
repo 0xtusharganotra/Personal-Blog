@@ -30,7 +30,7 @@ const PostPage = () => {
 
   return (
     <main className="flex justify-center w-[100vw]">
-      <section className="m-4 sm:p-4 px-4 py-4">
+      <section className="mt-4 sm:p-4 px-4 py-4 w-[95%] max-w-[700px]">
         <Link to="/" className="text-gray-400 underline text-sm">
           ← Back to Home
         </Link>
