@@ -17,10 +17,7 @@ const PostContainer = ({
   return (
     <div className="py-4 ">
       <div className="flex gap-10 justify-between py-2 items-center">
-        <p className="text-gray-100 truncate w-[80%]  font-semibold">{title}</p>
-        <p className="text-gray-100 font-semibold w-[20%] text-[12px] flex justify-end">
-          {date}
-        </p>
+        <p className="text-gray-100 truncate   font-semibold">{title}</p>
       </div>
       <p
         style={{ whiteSpace: "pre-line" }}
@@ -28,12 +25,17 @@ const PostContainer = ({
       >
         {content}
       </p>
-      <span
-        className="text-white italic font-semibold cursor-pointer"
-        onClick={sendToLink}
-      >
-        Read More
-      </span>
+      <div className="flex justify-between">
+        <p
+          className="text-white italic font-semibold cursor-pointer"
+          onClick={sendToLink}
+        >
+          Read More
+        </p>
+        <p className="text-gray-100 font-semibold text-[12px] flex justify-end">
+          {date}
+        </p>
+      </div>
     </div>
   );
 };
