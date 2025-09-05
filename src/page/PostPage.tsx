@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { client } from "../sanityClient";
 
+import { urlFor } from "../components/SanityImageUrl";
+
 const PostPage = () => {
   const { id } = useParams();
   const [post, setPost] = useState<any>(null);
@@ -11,9 +13,12 @@ const PostPage = () => {
   useEffect(() => {
     if (!id) return;
     client
-      .fetch(`*[_type == "post" && _id == $id][0]{title, body, publishedAt}`, {
-        id,
-      })
+      .fetch(
+        `*[_type == "post" && _id == $id][0]{title, body, publishedAt , mainImage}`,
+        {
+          id,
+        }
+      )
       .then(setPost)
       .catch(console.error);
   }, [id]);
@@ -40,6 +45,16 @@ const PostPage = () => {
         <p className="text-gray-400 text-sm float-right italic">
           {post.publishedAt.slice(0, 10)}
         </p>
+        {post.mainImage && (
+          <>
+            {console.log(urlFor(post.mainImage).url())}
+            <img
+              src={urlFor(post.mainImage).url()}
+              alt={post.title}
+              className="max-w-[700px] w-[100%] "
+            />
+          </>
+        )}
         <p
           style={{ whiteSpace: "pre-line" }}
           className="mt-4 text-gray-200 py-6"

@@ -17,7 +17,7 @@ const PostContainer = ({
   return (
     <div className="py-4 ">
       <div className="flex gap-10 justify-between py-2 items-center">
-        <p className="text-gray-100 truncate   font-semibold">{title}</p>
+        <p className="text-gray-100 truncate font-semibold">{title}</p>
       </div>
       <p
         style={{ whiteSpace: "pre-line" }}
