@@ -4,12 +4,21 @@ import { useEffect, useState } from "react";
 function App() {
   const [posts, setPosts] = useState([]);
 
+  function reversearr(arr) {
+    const reversed = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+      reversed.push(arr[i]);
+    }
+    return reversed;
+  }
+
   useEffect(() => {
     client
       .fetch(`*[_type == "post"]{title, slug, body, publishedAt , _id}`)
       .then((data) => {
         console.log(data);
-        setPosts(data);
+        const newarr = reversearr(data);
+        setPosts(newarr);
       })
       .catch(console.error);
   }, []);
