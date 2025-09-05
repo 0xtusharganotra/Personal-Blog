@@ -1,11 +1,18 @@
 import PostContainer from "./components/PostContainer";
 import { client } from "./sanityClient";
 import { useEffect, useState } from "react";
+interface PostType {
+  _id: string;
+  title: string;
+  slug: any; // you can replace `any` with proper slug type
+  body: any[]; // array of Sanity blocks
+  publishedAt: string;
+}
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
 
-  function reversearr(arr) {
-    const reversed = [];
+  function reverseArr<T>(arr: T[]): T[] {
+    const reversed: T[] = [];
     for (let i = arr.length - 1; i >= 0; i--) {
       reversed.push(arr[i]);
     }
@@ -15,9 +22,9 @@ function App() {
   useEffect(() => {
     client
       .fetch(`*[_type == "post"]{title, slug, body, publishedAt , _id}`)
-      .then((data) => {
-        console.log(data);
-        const newarr = reversearr(data);
+      .then((data: PostType[]) => {
+        // explicitly type data
+        const newarr = reverseArr(data);
         setPosts(newarr);
       })
       .catch(console.error);
