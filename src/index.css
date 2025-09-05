@@ -7,10 +7,6 @@ body {
   background: #151319;
 }
 
-section {
-  max-width: 600px;
-}
-
 .clamp {
   display: -webkit-box;
   -webkit-line-clamp: 4;
