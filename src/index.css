@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #151319;
+}
+
+section {
+  max-width: 600px;
+}
+
+.clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* optional, doesn't hurt */
+  white-space: normal;
+  overflow-wrap: anywhere; /* prevents ugly word slicing */
+  line-height: 1.5;
+}
