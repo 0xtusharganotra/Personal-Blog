@@ -12,21 +12,15 @@ interface PostType {
 function App() {
   const [posts, setPosts] = useState<PostType[]>([]);
 
-  function reverseArr<T>(arr: T[]): T[] {
-    const reversed: T[] = [];
-    for (let i = arr.length - 1; i >= 0; i--) {
-      reversed.push(arr[i]);
-    }
-    return reversed;
-  }
-
   useEffect(() => {
     client
-      .fetch(`*[_type == "post"]{title, slug, body, publishedAt , _id}`)
+      .fetch(
+        `*[_type == "post" ] | order(publishedAt desc) {title, slug, body, publishedAt , _id}`
+      )
       .then((data: PostType[]) => {
         // explicitly type data
-        const newarr = reverseArr(data);
-        setPosts(newarr);
+
+        setPosts(data);
       })
       .catch(console.error);
   }, []);
