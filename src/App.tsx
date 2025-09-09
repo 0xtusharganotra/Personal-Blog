@@ -69,7 +69,7 @@ function App() {
     <main className="flex justify-center w-[100vw]">
       <section className="mt-4 sm:p-4 px-4 py-4 w-[95%] max-w-[700px]">
         <h1 className="text-white sm:text-2xl text-xl flex justify-center">
-          Personal Dojo (Will of Amaterasu)
+          Personal Dojo
         </h1>
         {quote && (
           <p className="text-white m-auto text-center my-7 px-4 py-2 text-md bg-gray-800 flex flex-col rounded-xl">
